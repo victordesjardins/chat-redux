@@ -10,11 +10,28 @@ class MessageList extends Component {
     this.props.fetchMessages(this.props.selectedChannel);
   }
 
+  componentDidMount() {
+    this.refresher = setInterval(this.fetchMessages, 5000);
+  }
+
+  componentDidUpdate() {
+    this.list.scrollTop = this.list.scrollHeight;
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.refresher);
+  }
+
   render() {
     return (
-      <ul className="message-list">
-        {this.props.messages.map((message) => { return <Message message={message} key={message.created_at} /> })}
-      </ul>
+      <div className="message-list-container">
+        <div className="message-list-channel">
+          <p> Channel: {this.props.selectedChannel} </p>
+        </div>
+        <div className="message-list row" ref={(list) => { this.list = list; }}>
+          {this.props.messages.map((message) => { return <Message message={message} key={message.created_at} />; })}
+        </div>
+      </div>
     );
   }
 }

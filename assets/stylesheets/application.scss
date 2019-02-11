@@ -5,3 +5,85 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.flex {
+  display: flex;
+  height: 100vh;
+}
+
+.channel-container {
+  flex: 0 0 40%;
+  background-color: #F4F4F4;
+}
+
+.messages-container {
+  flex: 0 0 60%;
+  background-color: white;
+}
+
+.message-list-container {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-list {
+  flex: 0 0 90%;
+  margin: 0px;
+  border-bottom: 0.8px solid #F4F4F4;
+  padding: 20px 5px;
+  overflow: scroll;
+}
+
+form {
+  height: 10%;
+  text-align: center;
+  display: flex;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.message-form {
+  flex: 0 0 80%;
+  border: 0.8px solid #F4F4F4;
+  height: 40px;
+  width: 100%;
+}
+
+.message-form:focus {
+  outline: none;
+  border: 0.8px solid #D13334;
+}
+
+.sending-button {
+  flex: 0 0 20%;
+  width: 100px;
+  height: 40px;
+  background-color: #D13334;
+  border-radius: 4px;
+  color: white;
+}
+
+.message-list-channel {
+  flex: 0 0 10%;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.8px solid #F4F4F4;
+
+}
+
+.message-list-channel > p {
+  margin: 0px;
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.username {
+  padding: 5px 0px;
+  font-weight: bold;
+}
+
+.message-content {
+  padding: 5px 0px;
+}
