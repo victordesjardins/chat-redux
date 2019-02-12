@@ -5,6 +5,8 @@ import { selectChannel, fetchMessages } from '../actions/index';
 
 class Channel extends Component {
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
+    console.log(this.props)
     if (nextProps.selectedChannel !== this.props.selectedChannel) {
       this.props.fetchMessages(nextProps.selectedChannel);
     }
@@ -15,10 +17,11 @@ class Channel extends Component {
   }
 
   render() {
+    console.log(this.props.channel)
     return(
-      <a className="channel" onClick={() => this.handleClick(this.props.channel)}>
+      <li className={this.props.channel === this.props.selectedChannel ? "channel selected-channel" : "channel"} onClick={() => this.handleClick(this.props.channel)}>
         #{this.props.channel}
-      </a>
+      </li>
     );
   }
 }
